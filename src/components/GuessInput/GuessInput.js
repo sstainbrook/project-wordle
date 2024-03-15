@@ -9,8 +9,8 @@ function GuessInput() {
     setGuessInput("");
   }
 
-  function onGuessInputChange(newInput) {
-    setGuessInput(newInput.toUpperCase());
+  function onGuessInputChange(e) {
+    setGuessInput(e.target.value.toUpperCase());
   }
 
   return (
@@ -27,7 +27,7 @@ function GuessInput() {
         maxLength={5}
         required={true}
         value={guessInput}
-        onChange={(e) => onGuessInputChange(e.target.value)}
+        onChange={onGuessInputChange}
       ></input>
     </form>
   );
