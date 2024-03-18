@@ -7,9 +7,9 @@ function Guess({ guess }) {
       {range(5).map((index) => (
         <span
           key={index}
-          className='cell'
+          className={guess ? `cell ${guess[index].status}` : "cell"}
         >
-          {guess ? guess[index] : null}
+          {guess && guess[index].letter}
         </span>
       ))}
     </p>
