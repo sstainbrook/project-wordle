@@ -11,27 +11,18 @@ const answer = sample(WORDS);
 console.info({ answer });
 
 function Game() {
-  const [guess, setGuess] = useState("");
   const [guessHistory, setGuessHistory] = useState([]);
 
   function onGuessSubmit(nextGuess) {
     const nextGuessHistory = [...guessHistory];
-    const nextGuessObject = {
-      id: crypto.randomUUID(),
-      guess: nextGuess,
-    };
-    nextGuessHistory.push(nextGuessObject);
+    nextGuessHistory.push(nextGuess);
     setGuessHistory(nextGuessHistory);
   }
 
   return (
     <>
       <GuessResults guessHistory={guessHistory} />
-      <GuessInput
-        guess={guess}
-        setGuess={setGuess}
-        onGuessSubmit={onGuessSubmit}
-      />
+      <GuessInput onGuessSubmit={onGuessSubmit} />
     </>
   );
 }
